@@ -1,0 +1,37 @@
+ENERGIA NORTE S.A.
+CNPJ 11.222.333/0001-44
+=========================================================
+              CONTA DE ENERGIA ELETRICA
+=========================================================
+CLIENTE: COMERCIAL SAO JOAQUIM LTDA
+CPF/CNPJ: 45.678.901/0001-23
+ENDERECO: AV DAS INDUSTRIAS, 1420 - DISTRITO INDUSTRIAL
+CIDADE: SAO PAULO - SP        CEP: 04578-000
+
+UNIDADE CONSUMIDORA: 7002458913
+CLASSE: COMERCIAL - TRIFASICO
+MES DE REFERENCIA: 07/2026
+DATA DE VENCIMENTO: 15/08/2026
+DATA DE EMISSAO: 31/07/2026
+
+---------------------------------------------------------
+MEDICAO
+---------------------------------------------------------
+Leitura anterior ....... 28.450 kWh em 30/06/2026
+Leitura atual .......... 32.180 kWh em 30/07/2026
+Consumo faturado ....... 3.730 kWh
+Dias faturados ......... 30
+
+---------------------------------------------------------
+FATURAMENTO
+---------------------------------------------------------
+Consumo TUSD              3.730 kWh    R$      1.492,00
+Consumo TE                3.730 kWh    R$      1.156,30
+Bandeira Amarela                       R$         74,60
+ICMS (18%)                             R$        490,66
+PIS                                    R$         44,15
+COFINS                                 R$        203,42
+---------------------------------------------------------
+TOTAL A PAGAR                          R$      3.461,13
+=========================================================
+BANDEIRA TARIFARIA VIGENTE: AMARELA
