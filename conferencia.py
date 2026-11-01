@@ -35,7 +35,7 @@ def executar_verificacao():
                 for line in arquivo:
                     tusd = procura_item(re.search(r"\b.*?consumo.*?tusd.*?[\d.]+.*?([\d.,]+)", line, re.IGNORECASE))
                     te = procura_item(re.search(r"\b.*?consumo.*?te.*?[\d.]+.*?([\d.,]+)", line, re.IGNORECASE))
-                    bandeira = procura_item(re.search(r"\b.*?bandeira.*?(?![\d%]+)\b(\d[\d.,]+)\b", line, re.IGNORECASE))
+                    bandeira = procura_item(re.search(r"\b.*?bandeira.*?\b(\d[\d.,]+)\b", line, re.IGNORECASE))
                     icms = procura_item(re.search(r"\b.*?icms.*?\b(\d[\d.,]+)\b", re.sub(r"\d+(?:.,\d+)?\s*%", "", line), re.IGNORECASE))
                     pis = procura_item(re.search(r"\b.*?(?:pis|pasep).*?\b(\d[\d.,]+)\b", re.sub(r"\d+(?:.,\d+)?\s*%", "", line), re.IGNORECASE))
                     cofins = procura_item(re.search(r"\b.*?cofins.*?\b(\d[\d.,]+)\b", re.sub(r"\d+(?:.,\d+)?\s*%", "", line), re.IGNORECASE))
@@ -48,6 +48,7 @@ def executar_verificacao():
                             tarifa = tarifa.replace(".", "")
                             tarifa = tarifa.replace(",", ".")
                             contas.append(Decimal(tarifa))
+                            print(tarifa)
 
                 soma = sum(contas)
                 pago = faturas[contador]["valor_total"]
