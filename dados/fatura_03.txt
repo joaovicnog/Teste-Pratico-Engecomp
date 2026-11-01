@@ -1,0 +1,28 @@
+COMPANHIA ELETRICA SUDESTE
+------------------------------------------------------------
+DOCUMENTO AUXILIAR DA NOTA FISCAL DE ENERGIA ELETRICA
+------------------------------------------------------------
+Nome/Razao Social : PADARIA E CONFEITARIA AURORA ME
+CNPJ/CPF          : 98.765.432/0001-10
+No DA INSTALACAO  : 0031/889945-7
+Mes/Ano Referencia: 08/2026
+Data Vencimento   : 20/09/2026
+
+LEITURAS
+  Data anterior 31/07/2026  Indice   9.870 kWh
+  Data atual    31/08/2026  Indice  11.145 kWh
+  Consumo do mes                     1.275 kWh
+  Numero de dias                        31
+
+DESCRICAO DOS ITENS FATURADOS
+  01 CONSUMO TUSD kWh          1.275      510,00
+  02 CONSUMO TE kWh            1.275      395,25
+  03 BANDEIRA VERDE                         0,00
+  04 ILUMINACAO PUBLICA MUNICIPAL          38,90
+  05 ICMS                                 167,74
+  06 PIS                                   15,10
+  07 COFINS                                69,56
+                                    ------------
+  TOTAL DA FATURA R$                    1.196,55
+
+BANDEIRA TARIFARIA: VERDE
