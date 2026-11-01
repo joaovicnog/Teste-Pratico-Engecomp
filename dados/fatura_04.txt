@@ -1,0 +1,35 @@
+ENERGIA NORTE S.A.
+CNPJ 11.222.333/0001-44
+=========================================================
+              CONTA DE ENERGIA ELETRICA
+=========================================================
+CLIENTE: MERCADO CENTRAL DE ALIMENTOS EIRELI
+CPF/CNPJ: 23.456.789/0001-55
+ENDERECO: RUA DOS TRABALHADORES, 88 - CENTRO
+CIDADE: CAMPINAS - SP        CEP: 13010-100
+
+UNIDADE CONSUMIDORA: 7009911002
+CLASSE: COMERCIAL - TRIFASICO
+MES DE REFERENCIA: 08/2026
+DATA DE VENCIMENTO: 18/09/2026
+DATA DE EMISSAO: 02/09/2026
+
+---------------------------------------------------------
+MEDICAO
+---------------------------------------------------------
+Leitura anterior ....... 61.300 kWh em 31/07/2026
+Leitura atual .......... 66.115 kWh em 31/08/2026
+Consumo faturado ....... 4.815 kWh
+Dias faturados ......... 31
+
+---------------------------------------------------------
+FATURAMENTO
+---------------------------------------------------------
+Consumo TUSD              4.815 kWh    R$      1.926,00
+Consumo TE                4.815 kWh    R$      1.492,65
+ICMS (18%)                             R$        615,36
+PIS                                    R$         56,39
+COFINS                                 R$        259,80
+---------------------------------------------------------
+TOTAL A PAGAR                          R$      4.530,20
+=========================================================
