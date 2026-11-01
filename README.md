@@ -54,7 +54,7 @@ A conferência e as regras obtêm os dados chamando `processar_faturas()` por co
 
 **Extração**
 
-- Em vez de um leitor para cada distribuidora, cada campo tem uma regex que aceita os rótulos dos três layouts (ex.: `CLIENTE`, `Titular` e `Nome/Razao Social` para o cliente; `UNIDADE CONSUMIDORA`, `Instalacao` e `No DA INSTALACAO` para a UC). Para um layout novo, a ideia é acrescentar os rótulos dele nessas regex.
+- Em vez de um leitor para cada distribuidora, cada campo tem uma regex que aceita os rótulos dos layouts. Para um layout novo, a ideia é acrescentar os rótulos dele nessas regex.
 - A distribuidora é a primeira linha do arquivo, sem os `*` e sem o que vem depois de ` - ` (`*** CIA LUZ DO VALE - DISTRIBUIDORA DE ENERGIA ***` vira `CIA LUZ DO VALE`).
 - O documento do cliente só é aceito com os rótulos `CPF/CNPJ`, `CNPJ/CPF` ou `Documento` seguidos de `:`. Como o CNPJ da distribuidora aparece só como `CNPJ`, ele não é capturado.
 - Cliente, documento e UC ficam como texto, do jeito que aparecem na fatura (com pontos, barras e hífens).
@@ -75,7 +75,7 @@ A conferência e as regras obtêm os dados chamando `processar_faturas()` por co
 - O acréscimo de 1% vale quando o nome extraído da distribuidora é exatamente `CIA LUZ DO VALE` ou `COMPANHIA ELETRICA SUDESTE`, e o resultado é arredondado com `round(..., 2)`.
 - Só as faturas dessas duas distribuidoras recebem o campo `consumo_ajustado_kwh`, que fica logo depois de `consumo_kwh` (este nunca é alterado). As demais não ganham o campo, em vez de repetir o consumo faturado.
 - As inconsistências aparecem só no terminal. O `resultado.json` traz os campos extraídos e o consumo ajustado, com os `Decimal` gravados como número.
-- Na Análise, comparei o consumo ajustado; para as distribuidoras sem ajuste, usei o próprio consumo faturado.
+- Na Análise comparei o consumo ajustado e para as distribuidoras sem ajuste usei o próprio consumo faturado.
 
 ## Análise
 
