@@ -1,0 +1,28 @@
+*** CIA LUZ DO VALE - DISTRIBUIDORA DE ENERGIA ***
+CNPJ: 55.666.777/0001-88
+
+FATURA DE ENERGIA ELETRICA / NOTA FISCAL N. 998877
+
+Titular.............: INDUSTRIA METALURGICA BOA VISTA S/A
+Documento...........: 12.345.678/0001-99
+Instalacao..........: 55-9087341-2
+Referencia..........: AGOSTO/2026
+Vencimento..........: 05/09/2026
+
+  HISTORICO DE LEITURA
+  Anterior: 30/07/2026 - 154.220 kWh
+  Atual...: 29/08/2026 - 159.000 kWh
+  Periodo.: 30 dias
+  CONSUMO.: 4.780 kWh
+
+  COMPOSICAO DA FATURA
+  Energia Ativa Fornecida .................. 2.868,00
+  Uso do Sistema de Distribuicao ........... 1.673,00
+  Adicional Bandeira Vermelha P1 ............. 143,40
+  ICMS 18,00% ................................ 843,19
+  PIS/PASEP 1,65% ............................. 77,29
+  COFINS 7,60% ............................... 356,01
+  ------------------------------------------------
+  VALOR TOTAL DA FATURA R$ ................. 5.960,89
+
+  Bandeira: VERMELHA PATAMAR 1
