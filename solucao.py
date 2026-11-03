@@ -4,8 +4,8 @@ from conferencia import executar_verificacao
 from regras import aplicar_acrescimo
 
 faturas = processar_faturas()
-verifica_problemas = executar_verificacao()
-aplica_regras = aplicar_acrescimo()
+verifica_problemas = executar_verificacao(faturas)
+aplica_regras = aplicar_acrescimo(faturas)
 
 for indice, fatura in enumerate(faturas):
     for regra in aplica_regras:
