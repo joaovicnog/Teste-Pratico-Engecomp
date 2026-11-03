@@ -1,10 +1,10 @@
 import re
-from extracao import processar_faturas, procura_item
+from extracao import procura_item
 from pathlib import Path
 from decimal import Decimal
 
-def executar_verificacao():
-    faturas = processar_faturas()
+def executar_verificacao(dados):
+    faturas = dados
     caminho = Path("./dados")
 
     divergencia = []
@@ -89,6 +89,3 @@ def executar_verificacao():
     conferencia.sort(key=lambda x: x['arquivo'])
     
     return conferencia
-
-if __name__ == "__main__":
-    executar_verificacao()
