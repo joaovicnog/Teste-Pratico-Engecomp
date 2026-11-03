@@ -48,7 +48,6 @@ def executar_verificacao(dados):
                             tarifa = tarifa.replace(".", "")
                             tarifa = tarifa.replace(",", ".")
                             contas.append(Decimal(tarifa))
-                            print(tarifa)
 
                 soma = sum(contas)
                 pago = faturas[contador]["valor_total"]
