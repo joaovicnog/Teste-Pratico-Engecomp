@@ -113,6 +113,3 @@ def processar_faturas():
         contador += 1
 
     return faturas
-
-if __name__ == "__main__":
-    processar_faturas()
