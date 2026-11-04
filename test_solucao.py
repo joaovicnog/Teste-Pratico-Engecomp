@@ -23,6 +23,7 @@ def test_json_tem_consumo_ajustado():
     assert faturas["fatura_02"]["consumo_ajustado_kwh"] == 4827.8
     assert faturas["fatura_03"]["consumo_ajustado_kwh"] == 1287.75
     assert "consumo_ajustado_kwh" not in faturas["fatura_01"]
+    assert "consumo_ajustado_kwh" not in faturas["fatura_04"]
 
 def test_relatorio_mostra_divergencia_da_fatura_04():
     saida = rodar_solucao().stdout
