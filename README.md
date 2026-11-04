@@ -15,14 +15,15 @@
 │   ├── fatura_02.txt
 │   ├── fatura_03.txt
 │   └── fatura_04.txt
+├── testes/
+│   ├── test_extracao.py
+│   ├── test_conferencia.py
+│   ├── test_regras.py
+│   └── test_solucao.py
 ├── extracao.py
 ├── conferencia.py
 ├── regras.py
-├── solucao.py
-├── test_extracao.py
-├── test_conferencia.py
-├── test_regras.py
-└── test_solucao.py
+└── solucao.py
 ```
 
 Todo arquivo dentro de `dados/` é lido como fatura, então a pasta deve conter só as faturas.
@@ -50,23 +51,23 @@ O caminho `./dados` é relativo à pasta de onde o comando é executado: rodando
 Os testes usam o `pytest`, que não faz parte da biblioteca padrão:
 
 ```bash
-pip install pytest
+python3 -m pip install pytest
 ```
 
-Na pasta do projeto, como na execução, porque os testes também leem `./dados`:
+Na pasta do projeto (não dentro de `testes/`), como na execução, porque os testes também leem `./dados`:
 
 ```bash
-pytest -v
+python3 -m pytest -v
 ```
 
-No Windows: `pytest -v`.
+No Windows: `py -m pytest -v`.
 
-Os testes usam as quatro faturas de `dados/`, e cada arquivo testa o módulo de mesmo nome:
+Os testes ficam em `testes/`. Eles usam as quatro faturas de `dados/`, e cada arquivo testa o módulo de mesmo nome:
 
 - `test_extracao.py`: `converte_inteiro` (tira o ponto de milhar e recusa valor em reais), `procura_item` (com e sem resultado) e `processar_faturas` (lê as 4 faturas, confere os campos da fatura_02 e a `bandeira` como `None` na fatura_04).
 - `test_conferencia.py`: só a fatura_04 aparece no relatório, com divergência de R$ 180,00 `inferior` (4.350,20 nos itens contra 4.530,20 declarados) e `bandeira` nos campos ausentes.
 - `test_regras.py`: só a fatura_02 e a fatura_03 recebem o acréscimo, com 4827.8 kWh (4780 × 1.01) e 1287.75 kWh (1275 × 1.01).
-- `test_solucao.py`: roda o `solucao.py` como programa (via `subprocess`) e confere o `resultado.json` (4 faturas, `consumo_ajustado_kwh` na fatura_02 e na fatura_03 e ausente na fatura_01) e a divergência da fatura_04 no relatório impresso. Ele apaga e recria o `resultado.json` da pasta.
+- `test_solucao.py`: roda o `solucao.py` como programa (via `subprocess`) e confere o `resultado.json` (4 faturas, `consumo_ajustado_kwh` na fatura_02 e na fatura_03 e ausente na fatura_01 e na fatura_04) e a divergência da fatura_04 no relatório impresso. Ele apaga e recria o `resultado.json` da pasta.
 
 ## Decisões
 
