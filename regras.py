@@ -1,7 +1,5 @@
-from extracao import processar_faturas
-
-def aplicar_acrescimo():
-    faturas = processar_faturas()
+def aplicar_acrescimo(dados):
+    faturas = dados
 
     regras = []
 
@@ -15,6 +13,3 @@ def aplicar_acrescimo():
             regras.append(perdas_trans)
 
     return regras
-
-if __name__ == "__main__":
-    aplicar_acrescimo()

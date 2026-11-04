@@ -50,7 +50,7 @@ O caminho `./dados` é relativo à pasta de onde o comando é executado: rodando
 - `regras.py` (Módulo 3): calcula o consumo ajustado pela perda de transformação.
 - `solucao.py`: chama os três módulos, junta os resultados pelo nome do arquivo, imprime o resumo, grava o `resultado.json` e lista as inconsistências.
 
-A conferência e as regras obtêm os dados chamando `processar_faturas()` por conta própria. Os valores dos itens usados na soma (TUSD, TE, tributos etc.) são lidos dos arquivos dentro de `conferencia.py`, já que eles não fazem parte dos campos que o Módulo 1 entrega.
+A conferência e as regras recebem os dados estruturados via parâmetro a partir do fluxo coordenado pelo `solucao.py`. Os valores dos itens usados na soma (TUSD, TE, tributos etc.) são lidos dos arquivos dentro de `conferencia.py`.
 
 **Extração**
 
@@ -73,7 +73,7 @@ A conferência e as regras obtêm os dados chamando `processar_faturas()` por co
 **Regras e saída**
 
 - O acréscimo de 1% vale quando o nome extraído da distribuidora é exatamente `CIA LUZ DO VALE` ou `COMPANHIA ELETRICA SUDESTE`, e o resultado é arredondado com `round(..., 2)`.
-- Só as faturas dessas duas distribuidoras recebem o campo `consumo_ajustado_kwh`, que fica logo depois de `consumo_kwh` (este nunca é alterado). As demais não ganham o campo, em vez de repetir o consumo faturado.
+- O arquivo `resultado.json` traz os campos extraídos e o consumo ajustado para as distribuidoras afetadas. Para manter a consistência da estrutura do JSON de saída, o campo `consumo_ajustado_kwh` fica presente em todas as faturas (ordenado logo após `consumo_kwh`), sem que o valor faturado original seja alterado.
 - As inconsistências aparecem só no terminal. O `resultado.json` traz os campos extraídos e o consumo ajustado, com os `Decimal` gravados como número.
 - Na Análise comparei o consumo ajustado e para as distribuidoras sem ajuste usei o próprio consumo faturado.
 
