@@ -18,7 +18,11 @@
 ├── extracao.py
 ├── conferencia.py
 ├── regras.py
-└── solucao.py
+├── solucao.py
+├── test_extracao.py
+├── test_conferencia.py
+├── test_regras.py
+└── test_solucao.py
 ```
 
 Todo arquivo dentro de `dados/` é lido como fatura, então a pasta deve conter só as faturas.
@@ -40,6 +44,29 @@ O caminho `./dados` é relativo à pasta de onde o comando é executado: rodando
 1. Um resumo de cada fatura no terminal.
 2. O arquivo `resultado.json` gravado na pasta de execução, com os 4 registros.
 3. A lista de inconsistências encontradas, no final do terminal.
+
+**Testes**
+
+Os testes usam o `pytest`, que não faz parte da biblioteca padrão:
+
+```bash
+pip install pytest
+```
+
+Na pasta do projeto, como na execução, porque os testes também leem `./dados`:
+
+```bash
+pytest -v
+```
+
+No Windows: `pytest -v`.
+
+Os testes usam as quatro faturas de `dados/`, e cada arquivo testa o módulo de mesmo nome:
+
+- `test_extracao.py`: `converte_inteiro` (tira o ponto de milhar e recusa valor em reais), `procura_item` (com e sem resultado) e `processar_faturas` (lê as 4 faturas, confere os campos da fatura_02 e a `bandeira` como `None` na fatura_04).
+- `test_conferencia.py`: só a fatura_04 aparece no relatório, com divergência de R$ 180,00 `inferior` (4.350,20 nos itens contra 4.530,20 declarados) e `bandeira` nos campos ausentes.
+- `test_regras.py`: só a fatura_02 e a fatura_03 recebem o acréscimo, com 4827.8 kWh (4780 × 1.01) e 1287.75 kWh (1275 × 1.01).
+- `test_solucao.py`: roda o `solucao.py` como programa (via `subprocess`) e confere o `resultado.json` (4 faturas, `consumo_ajustado_kwh` na fatura_02 e na fatura_03 e ausente na fatura_01) e a divergência da fatura_04 no relatório impresso. Ele apaga e recria o `resultado.json` da pasta.
 
 ## Decisões
 
@@ -73,7 +100,7 @@ A conferência e as regras recebem os dados estruturados via parâmetro a partir
 **Regras e saída**
 
 - O acréscimo de 1% vale quando o nome extraído da distribuidora é exatamente `CIA LUZ DO VALE` ou `COMPANHIA ELETRICA SUDESTE`, e o resultado é arredondado com `round(..., 2)`.
-- O arquivo `resultado.json` traz os campos extraídos e o consumo ajustado para as distribuidoras afetadas. Para manter a consistência da estrutura do JSON de saída, o campo `consumo_ajustado_kwh` fica presente em todas as faturas (ordenado logo após `consumo_kwh`), sem que o valor faturado original seja alterado.
+- O arquivo `resultado.json` traz os campos extraídos e o consumo ajustado para as distribuidoras afetadas. O campo `consumo_ajustado_kwh` só aparece nas faturas dessas distribuidoras (fatura_02 e fatura_03), logo após `consumo_kwh`, sem que o valor faturado original seja alterado.
 - As inconsistências aparecem só no terminal. O `resultado.json` traz os campos extraídos e o consumo ajustado, com os `Decimal` gravados como número.
 - Na Análise comparei o consumo ajustado e para as distribuidoras sem ajuste usei o próprio consumo faturado.
 
