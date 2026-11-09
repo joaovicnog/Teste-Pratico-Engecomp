@@ -40,9 +40,7 @@ def processar_faturas():
     caminho = Path("./dados")
     faturas = []
 
-    contador = 0
-
-    for contador, item in enumerate(caminho.iterdir()):
+    for item in caminho.iterdir():
         if item.is_file():
             with open(item, "r", encoding="utf-8") as arquivo:
                 fatura_atual = (
