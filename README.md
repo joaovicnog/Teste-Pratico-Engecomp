@@ -4,7 +4,7 @@
 
 - Python 3.12 ou mais recente. O `solucao.py` usa f-strings aninhadas com o mesmo tipo de aspas (ex.: `f"CLIENTE: {fatura["cliente"]}"`), o que só é aceito a partir do 3.12. Em versões anteriores, o programa para com `SyntaxError`.
 - Apenas biblioteca padrão: não há nada para instalar.
-- Locale pt_BR disponível no sistema. O programa tenta configurar `pt_BR.utf8` e, se não conseguir, `Portuguese_Brazil.1252` (nome usado no Windows). Se nenhuma das duas existir, ele para com `locale.Error`. No Ubuntu, a locale pode ser gerada com `sudo locale-gen pt_BR.UTF-8`.
+- Locale `pt_BR` disponível no sistema como suporte de ambiente.
 
 **Estrutura**
 
@@ -86,7 +86,7 @@ A conferência e as regras recebem os dados estruturados via parâmetro a partir
 - A distribuidora é a primeira linha do arquivo, sem os `*` e sem o que vem depois de ` - ` (`*** CIA LUZ DO VALE - DISTRIBUIDORA DE ENERGIA ***` vira `CIA LUZ DO VALE`).
 - O documento do cliente só é aceito com os rótulos `CPF/CNPJ`, `CNPJ/CPF` ou `Documento` seguidos de `:`. Como o CNPJ da distribuidora aparece só como `CNPJ`, ele não é capturado.
 - Cliente, documento e UC ficam como texto, do jeito que aparecem na fatura (com pontos, barras e hífens).
-- Quando o mês de referência vem por extenso (`AGOSTO/2026`), ele é trocado pelo número usando os nomes de mês da locale pt_BR (`calendar.month_name` e `calendar.month_abbr`). É por isso que o programa configura a locale.
+- Quando o mês de referência vem por extenso (`AGOSTO/2026`), ele é convertido para o formato de dois dígitos (`08`) via mapa de expressões regulares (`MAPA_MESES`) garantindo compatibilidade com `datetime.strptime(..., "%m/%Y")`.
 - A bandeira vem da linha de resumo com `:` (ex.: `BANDEIRA TARIFARIA VIGENTE: AMARELA`), e não da linha do item cobrado. O texto fica como está na fatura, então a fatura_02 sai como `VERMELHA PATAMAR 1`. Quando essa linha não existe, como na fatura_04, fica `None`.
 - Valores em reais vêm no formato brasileiro (`3.461,13`) e são convertidos para `Decimal`, para a soma não ter erro de arredondamento de `float`.
 
@@ -116,9 +116,6 @@ Ao considerarmos o valor **ajustado** com a perda de transformação:
     - Consumo: 4827.8 kWh
 
 ## Questionário
-
-Quatro perguntas curtas, também no `README.md`. Responda **com as suas palavras** — queremos a sua
-forma de pensar, não a definição de manual.
 
 **2.** Qual foi o desafio mais marcante que você superou no desenvolvimento de uma feature ou
 ferramenta?
