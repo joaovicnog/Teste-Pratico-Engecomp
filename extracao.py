@@ -1,5 +1,4 @@
 import re
-import calendar
 import locale
 from pathlib import Path
 from datetime import datetime
